@@ -1,5 +1,4 @@
 require 'test_helper'
-
 class ProductsControllerTest < ActionController::TestCase
   setup do
     @product = products(:one)
@@ -30,6 +29,8 @@ class ProductsControllerTest < ActionController::TestCase
     assert_redirected_to product_path(assigns(:product))
   end
 
+  # ...
+
   test "should show product" do
     get :show, id: @product
     assert_response :success
@@ -45,13 +46,7 @@ class ProductsControllerTest < ActionController::TestCase
     assert_redirected_to product_path(assigns(:product))
   end
 
-  test "can't delete product in cart" do
-    assert_difference('Product.count', 0) do
-      delete :destroy, id: products(:ruby)
-    end
-
-    assert_redirected_to products_path
-  end
+  # ...
 
   test "should destroy product" do
     assert_difference('Product.count', -1) do
@@ -59,11 +54,5 @@ class ProductsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to products_path
-  end
-
-  test "should require login" do
-    logout
-    get :index
-    assert_redirected_to login_path
   end
 end

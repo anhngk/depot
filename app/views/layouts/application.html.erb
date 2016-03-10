@@ -1,100 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Pragprog Books Online Store</title>
-    <%= stylesheet_link_tag    "application", media: "all",
-    "data-turbolinks-track" => true %>
-    <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body class="<%= controller.controller_name %>">
-    <header id="header">
-      <div class="container">
-          <div class="col-md-5">
-            <h3><a href="http://localhost:3000"><%= @page_title || t('.title') %></a></h3>
-          </div>
-<!--LoginForm-Logout-Btn-->
-          <div class="col-md-7">
-            <% if session[:user_id] %>
-              <div id="logout_btn">
-                <%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-default" %>
-              </div>
-            <% else %>
-              <%= form_tag login_path, method: :post, class: "form-inline" do %>
-              <div class="form-group">
-                <%= text_field_tag :name, params[:name], :placeholder =>'Name', class: "form-control" %>
-              </div>
-              <div class="form-group">
-                <%= password_field_tag :password, params[:password], :placeholder =>'Password', class: "form-control" %>
-              </div>
-              <%= submit_tag 'Login', class: "btn btn-default" %>
-              <% end %>
-            <% end %>
-<!--Cart-Btn-->
-          <% if @cart %>
-            <div id="cart-btn" class="btn-group pull-right">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              <span class="glyphicon glyphicon-shopping-cart"></span> Cart
-              </button>
-              <ul class="dropdown-menu">
-                <li><%= render @cart %></li>
-              </ul>
-            </div>
-          <% end %>
-          </div>
-      </div>
-    </header>
-    </br>
-<!--Nav-bar-->
-    <div class="container">
-      <div class="col-md-12">
-        <nav>
-          <ul class="nav nav-tabs" role="tab-list">
-            <li role="presentation" class="active"><a href="http://localhost:3000">Store</a></li>
-            <li role="presentation"><a href="#">Questions</a></li>
-            <li><%= link_to 'News', posts_path %></li>
-            <li role="presentation"><a href="#">Contact</a></li>
-            <% if session[:user_id] %>
-              <li><%= link_to 'Orders',   orders_path   %></li>
-              <li><%= link_to 'Products', products_path %></li>
-              <li><%= link_to 'Users',    users_path    %></li>
-            <% end %>
-          </ul>
-        </nav>
-      </div>
-    </div>
+<head>
+  <title>Depot</title>
+  <%= stylesheet_link_tag "products", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class='<%= controller.controller_name %>'>
 
-    </br>
+<%= yield %>
 
-  <div class="container">
-      <%= yield %>
-  </div>
-
-  <div class="container">
-    <div class="col-md-12">
-    <hr>
-      <div class="col-md-7">
-        <p>The Pragmatic Bookshelf. Great content, by developers for developers.</p>
-      </div>
-      <div class="col-md-5">
-        <div id="languages">
-          <span><%= form_tag store_path, class: 'locale btn btn-default dropdown-toggle form-inline' do %>
-              <%= select_tag 'set_locale',
-                options_for_select(LANGUAGES, I18n.locale.to_s), onchange: 'this.form.submit()' %>
-              <%= submit_tag 'submit' %>
-              <%= javascript_tag "$('.locale input').hide()" %>
-              <% end %></span>
-        </div>
-      </div>
-    
-
-    
-      <div class="col-md-12 text-muted">
-        <p>© 1999–2016 The Pragmatic Programmers, LLC</p>
-      </div>
-    </div>
-  </div>
 </body>
-
 </html>

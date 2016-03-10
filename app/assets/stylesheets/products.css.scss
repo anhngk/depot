@@ -24,124 +24,27 @@
     }
 
     dt {
-      color:        #2C3E50;
+      color:        #244;
       font-weight:  bold;
       font-size:    larger;
     }
 
     dd {
       margin: 0;
-      color: #34495E;
     }
   }
 
   .list_actions {
-    font-size:    small;
+    font-size:    x-small;
     text-align:   right;
     padding-left: 1em;
   }
 
   .list_line_even {
-    background:   #95A5A6;
+    background:   #e0f8f8;
   }
 
   .list_line_odd {
-    background:   #1ABC9C;
+    background:   #f8b0f8;
   }
-}
-
-
-
-#products {
-
-  .glyphicon { margin-right:5px; }
-
-  .lead {
-    margin-bottom: 0;
-  }
-  
-  .thumbnail
-  {
-      margin-bottom: 20px;
-      padding: 0px;
-      -webkit-border-radius: 0px;
-      -moz-border-radius: 0px;
-      border-radius: 0px;
-
-  }
-
-  .item.list-group-item
-  {
-      float: none;
-      width: 100%;
-      background-color: #fff;
-      margin-bottom: 10px;
-  }
-  .item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
-  {
-      background: #428bca;
-  }
-
-  .item.list-group-item .list-group-image
-  {
-      margin-right: 10px;
-  }
-  .item.list-group-item .thumbnail
-  {
-      margin-bottom: 0px;
-  }
-  .item.list-group-item .caption
-  {
-      padding: 9px 9px 0px 9px;
-  }
-  .item.list-group-item:nth-of-type(odd)
-  {
-      background: #eeeeee;
-  }
-
-  .item.list-group-item:before, .item.list-group-item:after
-  {
-      display: table;
-      content: " ";
-  }
-
-  .item.list-group-item img
-  {
-      float: left;
-  }
-  .item.list-group-item:after
-  {
-      clear: both;
-  }
-  .list-group-item-text
-  {
-      margin: 0 0 11px;
-  }
-}
-
-
-.jumbotron {
-  background-image: url('http://i1039.photobucket.com/albums/a472/anhnguyen95/sd_0001_payment-gateway-banner_zpsmi5wbchi.jpg');
-  width: 100%;
-  height: 300px;
-  background-size: cover;
-  overflow: hidden;
-  border-radius: 0;
-  margin-top: 20px;
-  margin-bottom: 0px;
-}
-
-#display-bar {
-  padding: 5px;
-  margin: 5px 0 10px 0;
-  border: 1px solid #d9d9d9;
-  border-radius: 5px;
-  background-color: #d9d9d9;
-  color: #34495E;
-}
-
-#catalog {
-  color: #34495E;
-  padding: 15px 0 7px 0;
-  margin-top: 0;
 }

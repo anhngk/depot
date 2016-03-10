@@ -10,25 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery-2.2.1.min
-//= require jquery-ui/effect-blind
+//= require jquery
 //= require jquery_ujs
-//= require ckeditor-jquery
 //= require turbolinks
-//= require bootstrap.min
-//= require_tree .
-
-
-
-$(document).ready(function() {
-    $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
-    $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
-});
-
-$('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-
-$('.ckeditor').ckeditor({
-  // optional config
-});
