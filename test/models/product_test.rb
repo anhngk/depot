@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+
+	fixtures :products
 	test "product attributes must not be empty" do
 		product = Product.new
 		assert product.invalid?
@@ -47,9 +49,8 @@ class ProductTest < ActiveSupport::TestCase
 
 		bad.each do |name|
 			assert new_product(name).invalid?, "#{name} shouldn't be valid"
+		end
 	end
-
-	fixtures :products
 
 	test "product is not valid without a unique title" do
 		product = Product.new(title: products(:ruby).title,
@@ -59,15 +60,5 @@ class ProductTest < ActiveSupport::TestCase
 		assert product.invalid?
 		assert_equal [I18n.translate('errors.messages.taken')],
 						product.errors[:title]
-	end
-
-	test "product title must have at least 10 characters" do
-		product = Product.new(title: "1234",
-								description: "yyy",
-								price: 1,
-								image_url: "123.png")
-		assert product.invalid?
-		assert_equal [I18n.translate('errors.message.too_short', count: 10), 
-						product.errors[:title].join('; ')]
 	end
 end
