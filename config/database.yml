@@ -4,25 +4,19 @@ default: &default
   timeout: 5000
 
 development:
-  adapter: postgresql
-  host: ec2-54-83-56-31.compute-1.amazonaws.com
-  database: app_dev
-  username: ejrohcojtouhge
-  password: yMY4PbNjc6R6LhVRVCKLq1eiYQ
+  <<: *default
+  database: app_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: postgresql
-  host: ec2-54-83-56-31.compute-1.amazonaws.com
-  database: app_test
-  username: ejrohcojtouhge
-  password: yMY4PbNjc6R6LhVRVCKLq1eiYQ
+  <<: *default
+  database: app-test
 
 production:
-  adapter: postgresql
-  host: ec2-54-83-56-31.compute-1.amazonaws.com
+  <<: *default
   database: app_production
   username: ejrohcojtouhge
-  password: yMY4PbNjc6R6LhVRVCKLq1eiYQ
+  password: <%= ENV['yMY4PbNjc6R6LhVRVCKLq1eiYQ'] %>
+  url: <%= ENV['postgres://ejrohcojtouhge:yMY4PbNjc6R6LhVRVCKLq1eiYQ@ec2-54-83-56-31.compute-1.amazonaws.com:5432/de9410vqhrv14p'] %>
