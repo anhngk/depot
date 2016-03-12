@@ -17,6 +17,6 @@ test:
 production:
   <<: *default
   database: app_production
-  username: ejrohcojtouhge
-  password: <%= ENV['yMY4PbNjc6R6LhVRVCKLq1eiYQ'] %>
-  url: <%= ENV['postgres://ejrohcojtouhge:yMY4PbNjc6R6LhVRVCKLq1eiYQ@ec2-54-83-56-31.compute-1.amazonaws.com:5432/de9410vqhrv14p'] %>
+  username: admin
+  password: 1
+  url: <%= ENV['DATABASE_URL'] %>
